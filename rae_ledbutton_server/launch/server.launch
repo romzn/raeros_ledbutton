@@ -1,0 +1,6 @@
+<launch>
+    <arg name="perception_system" default="realsense" />
+
+    <param name="/rae/perception_system" type="string" value="$(arg perception_system)" />
+    <node pkg="rae_ledbutton_server" name="rae_ledbutton_server" type="rae_ledbutton_server.py" output="screen" respawn="false"/>
+</launch>
