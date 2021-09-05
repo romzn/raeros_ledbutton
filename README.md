@@ -1,3 +1,19 @@
+- [raeros_ledbutton](#raeros_ledbutton)
+- [Instructions](#instructions)
+  - [Installation](#installation)
+  - [Set perception system](#set-perception-system)
+  - [Start the server](#start-the-server)
+  - [Control via the client](#control-via-the-client)
+  - [LED](#led)
+    - [On and off](#on-and-off)
+    - [Blink](#blink)
+    - [Heartbeat pattern](#heartbeat-pattern)
+  - [Button](#button)
+    - [Read current state](#read-current-state)
+    - [Register event](#register-event)
+      - [Onpress](#onpress)
+      - [Onrelease](#onrelease)
+
 # raeros_ledbutton
 This repository contains ros based drivers to control a button with integrated led.
 The used button can be ordered here: [conrad.de/ledbutton](https://www.conrad.de/de/p/tru-components-gq16f-10e-j-b-12v-vandalismusgeschuetzter-drucktaster-48-v-dc-2-a-1-x-aus-ein-ip65-tastend-1-st-701855.html?refresh=true#attributesNotes_delivery)
@@ -16,12 +32,13 @@ cd .. &&
 catkin_make
 ```
 ## Set perception system
-Set either realsense or kinect as `perception_system` parameter inside the config file.
+Because the realsense case has one an the kinect case has two led-buttons you have to set an parameter which decides how many servers are started- Set either __realsense__ or __kinect__ as `perception_system` parameter inside the `system.launch` of the `raeros_system` package. Realsense is set as default.
 
 ## Start the server
 ```bash
 roslaunch rae_ledbutton_server server.launch
 ```
+> This launch file is also in the `system.launch` from the `raeros_system` package integrated
 
 ## Control via the client
 The script `scripts/example.py` guides you through the available commands to control the led and read button states. First you have to turn on the server and then you can run the script directly or via rosorun.
@@ -74,7 +91,7 @@ And turn it off with:
 lb.blink_off()
 ```
 ### Heartbeat pattern
-You can start an **realistic** heartbeat pattern with the `lb.hearbeat_on()` functions. With the `speed` parameter you can specify how fast the heartbeat pattern runs. Default is 50 and ranges from 0-100
+You can start an **realistic** heartbeat pattern with the `lb.hearbeat_on()` functions. With the `speed` parameter you can specify how fast the heartbeat pattern runs. Default is 50 and ranges from 0-100. `lb.heartbeat_off()` turns the heartbeat off.
 
 ```python
 lb.hearbeat_on(speed=100)
