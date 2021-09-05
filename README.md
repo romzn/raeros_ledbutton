@@ -2,6 +2,10 @@
 This repository contains ros based drivers to control a button with integrated led.
 The used button can be ordered here: [conrad.de/ledbutton](https://www.conrad.de/de/p/tru-components-gq16f-10e-j-b-12v-vandalismusgeschuetzter-drucktaster-48-v-dc-2-a-1-x-aus-ein-ip65-tastend-1-st-701855.html?refresh=true#attributesNotes_delivery)
 
+<p align="center">
+<img style="margin-left: auto;" src="https://asset.conrad.com/media10/isa/160267/c1/-/de/701855_BB_00_FB/tru-components-gq16f-10e-j-b-12v-vandalismusgeschuetzter-drucktaster-48-v-dc-2-a-1-x-aus-ein-ip65-tastend-1-st.jpg" width="25%">
+</p>
+
 # Instructions
 ## Installation
 Clone the repository inside your workspace and build it:
