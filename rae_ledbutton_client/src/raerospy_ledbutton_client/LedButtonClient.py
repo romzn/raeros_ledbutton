@@ -47,9 +47,9 @@ class LedButtonClient(object):
 
     def __read_button_cb(self,data):
         self.__button_state = data.state
-        if self.__button_state == "ON":
+        if self.__button_state == "ON" and self.__button_pressed_handler != None:
             self.__button_pressed_handler()
-        if self.__button_state == "OFF":
+        if self.__button_state == "OFF" and self.__button_released_handler != None:
             self.__button_released_handler()
         
     def button_state(self):
